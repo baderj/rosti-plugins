@@ -1,0 +1,17 @@
+{
+  "name": "rosti",
+  "displayName": "Rösti Threat Intel",
+  "version": "0.1.0",
+  "description": "Check IOCs against public threat-intelligence reports, research CVEs and ATT&CK techniques, read reports with their YARA rules, and export indicators. Uses the free Rösti MCP server.",
+  "author": {
+    "name": "Johannes Bader",
+    "email": "rosti@bin.re",
+    "url": "https://rosti.dev"
+  },
+  "homepage": "https://rosti.dev/mcp",
+  "repository": "https://github.com/baderj/rosti-plugins",
+  "license": "MIT",
+  "icon": "./icon.png",
+  "privacyPolicyUrl": "https://rosti.dev/privacy#mcp",
+  "keywords": ["threat-intelligence", "ioc", "yara", "mitre-attack", "cve", "security"]
+}

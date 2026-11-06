@@ -1,0 +1,15 @@
+{
+  "name": "rosti-plugins",
+  "description": "Plugins for Rösti (rosti.dev), a threat-intelligence report and IOC database",
+  "owner": {
+    "name": "Johannes Bader",
+    "email": "rosti@bin.re"
+  },
+  "plugins": [
+    {
+      "name": "rosti",
+      "source": "./plugins/rosti",
+      "description": "Check IOCs, research CVEs and read threat reports with Rösti threat intelligence."
+    }
+  ]
+}

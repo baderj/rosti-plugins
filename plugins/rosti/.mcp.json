@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "rosti": {
+      "type": "http",
+      "url": "https://mcp.rosti.dev/mcp"
+    }
+  }
+}
