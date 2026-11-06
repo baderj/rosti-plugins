@@ -31,7 +31,7 @@ No account is needed. Anonymous users share one quota. When it is used up, Claud
 
 ## Data
 
-The plugin has no code of its own and stores nothing. Whatever Claude looks up (IOC values, report ids, search terms) is sent to `mcp.rosti.dev`, which forwards it to the Rösti API and returns the results. The server keeps access logs for 90 days; see the [privacy policy](https://rosti.dev/privacy#mcp). Do not look up values you are not allowed to share with a third party.
+The plugin has no code of its own and stores nothing. Whatever Claude looks up (IOC values, report ids, search terms) is sent to `mcp.rosti.dev`, which forwards it to the Rösti API and returns the results. IOC lookups also send the indicator values to the Rösti False Positive Warninglist at `https://fpbuster.rosti.dev/api/v1` to check for likely false positives, such as popular domains and public DNS resolvers. The server keeps access logs for 90 days; see the [privacy policy](https://rosti.dev/privacy#mcp). Do not look up values you are not allowed to share with a third party.
 
 ## Support
 

@@ -1,7 +1,7 @@
 {
   "name": "rosti",
   "displayName": "Rösti Threat Intel",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Check IOCs against public threat-intelligence reports, research CVEs and ATT&CK techniques, read reports with their YARA rules, and export indicators. Uses the free Rösti MCP server.",
   "author": {
     "name": "Johannes Bader",

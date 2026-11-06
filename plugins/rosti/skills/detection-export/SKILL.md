@@ -29,14 +29,16 @@ When no export fits, the user wants indicators from several reports, or the list
 
 1. Find the indicators with `list_report_iocs` (one report) or `search_iocs` (across reports, with `types`, `tags`, `categories` and `since`). Call `describe_taxonomy` once for the valid values. Page through all results with `next_cursor` when the user wants a complete list.
 2. Keep only types the target handles, for example `ip`, `cidr`, `domain` and `url` for a firewall or proxy, and `md5`, `sha1` and `sha256` for an EDR. Split combined types such as `ip:port`, `domain:port` and `domain:ip` when the target needs plain values.
-3. Keep indicators flagged for IDS when the target is a network detection system.
-4. Leave out, or list separately with the reason:
+3. Deduplicate the final candidate indicators by type and value, including any values produced by splitting combined types. Preserve every contributing report id and its context; do not discard conflicting tags, IDS flags or false-positive risks when merging duplicates.
+4. Keep indicators flagged for IDS when the target is a network detection system.
+5. Before producing a custom blocklist, call `lookup_iocs` for the distinct candidate values, in batches of at most 1,000. The search and list tools do not perform this warninglist check. Read `false_positive_verdict` on found results and `false_positive_verdicts` for values in `not_found`. If the lookup fails or the quota is exhausted, disclose that the additional check could not be completed. A missing verdict does not establish that a value is malicious or safe to block.
+6. Leave out, or list separately with the reason:
    - indicators with a false-positive risk of medium, high or very high (the levels are informational, small, moderate, medium, high, very high)
    - indicators tagged `lookup`, `tracker` or `lol`, which are usually legitimate services
-   - anything `lookup_iocs` marks with a `false_positive_verdict`
+   - values with a warninglist `false_positive_verdict`, preserving its `level`, `confidence` and `reason`; describe low-confidence verdicts as uncertain and weigh them against the report evidence rather than labeling every flagged value benign
    Blocking popular domains, public resolvers or geolocation services breaks legitimate traffic.
-5. For rules, call `get_yara_rules` and output the rules unchanged in one file.
+7. For rules, call `get_yara_rules` and output the rules unchanged in one file.
 
 ## Output
 
-Give the format the target needs: one value per line for blocklists, CSV with type, value, tags and report for tickets, or a query for the user's tool when they name it. State how many indicators were included, how many were left out and why, and the report each came from. Remind the user that a match means the value was mentioned in a report, so review before blocking.
+Give the format the target needs: one value per line for blocklists, CSV with type, value, tags and report for tickets, or a query for the user's tool when they name it. State how many unique indicators were included, how many were left out and why, and all source reports for each indicator (in a separate provenance table when the target format cannot carry them). Remind the user that a match means the value was mentioned in a report, so review before blocking.
