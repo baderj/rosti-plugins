@@ -9,7 +9,7 @@ Use [Rösti](https://rosti.dev) threat intelligence in Claude. Rösti collects p
 | `ioc-triage` | Check IPs, domains, URLs, hashes or e-mail addresses against all reports, with false-positive context |
 | `cve-research` | Find the reports about a CVE, ATT&CK technique, malware or actor and summarize what they say |
 | `report-deep-dive` | Read one report: techniques, CVEs, IOCs, YARA rules and related reports |
-| `detection-export` | Turn a report's indicators into a blocklist, hunting list or download (CSV, STIX, MISP) |
+| `detection-export` | Turn indicators into a blocklist or download: DNS and firewall feeds, Microsoft Defender, CSV, STIX 2.1, MISP, YARA |
 
 Just describe what you need, for example "Check these indicators against Rösti" or "What do Rösti reports say about CVE-2024-3400?". Claude picks the matching skill.
 
