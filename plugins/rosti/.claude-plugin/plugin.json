@@ -9,10 +9,7 @@
     "url": "https://rosti.dev"
   },
   "homepage": "https://rosti.dev/mcp",
-  "documentationUrl": "https://rosti.dev/mcp",
   "repository": "https://github.com/baderj/rosti-plugins",
   "license": "MIT",
-  "icon": "./icon.png",
-  "privacyPolicyUrl": "https://rosti.dev/privacy#mcp",
   "keywords": ["threat-intelligence", "ioc", "yara", "mitre-attack", "cve", "security"]
 }
